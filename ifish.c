@@ -3,21 +3,22 @@
 
 int main(int argc, char *argv, char *envp[])
 {
-  int i;
-  char c[120];
+  int i = 0;
+  char str[120];
   char *p;
   const char *array[10];
   printf("@ifish ");
-  while (c != EOF)
+  while (stdin != 0)
   {
-    c = getchar();
-    p = strtok (c," ");
+    fgets(str, 120, stdin);
+    p = strtok(str,' ');
     while (p != NULL)
     {
       array [i++] = p;
-      p = strtok (NULL, " ");
+      p = strtok (NULL, ' ');
     }
-		if (c == '\n')
+		if (stdin == '\n')
 			printf("@ifish ");
+      i = 0;
 	}
 }
